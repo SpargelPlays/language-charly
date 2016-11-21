@@ -1,6 +1,6 @@
 {
   "name": "language-charly",
-  "version": "0.2.0",
+  "version": "1.123.0",
   "description": "Charly language support in Atom",
   "engines": {
     "atom": "*",
