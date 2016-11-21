@@ -1,19 +1,18 @@
 {
-  "name": "language-javascript",
+  "name": "language-charly",
   "version": "0.123.0",
-  "description": "JavaScript language support in Atom",
+  "description": "Charly language support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
   },
-  "homepage": "http://atom.github.io/language-javascript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/atom/language-javascript.git"
+    "url": "https://github.com/SpargelPlays/language-charly.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/language-javascript/issues"
+    "url": "https://github.com/atom/language-charly/issues"
   },
   "devDependencies": {
     "coffeelint": "^1.10.1"

@@ -1,21 +1,7 @@
-'scopeName': 'source.js'
-'name': 'JavaScript'
+'scopeName': 'source.charly'
+'name': 'Charly'
 'fileTypes': [
-  'js'
-  '_js'
-  'es'
-  'es6'
-  'gs'
-  'htc'
-  'jscad'
-  'jslib'
-  'jsm'
-  'json5'
-  'jspre'
-  'pac'
-  'pjs'
-  'xsjs'
-  'xsjslib'
+  'charly'
 ]
 'firstLineMatch': '''(?x)
   # Hashbang
@@ -147,7 +133,7 @@
     'match': '''(?x)
       \\b(export)\\b\\s*
       \\b(default)\\b\\s*
-      \\b((?!\\b(?:function|class|let|var|const)\\b)[a-zA-Z_$][\\w$]*)?\\b
+      \\b((?!\\b(?:func|class|let|const)\\b)[a-zA-Z_$][\\w$]*)?\\b
     '''
     'captures':
       '0':
@@ -165,7 +151,7 @@
     'beginCaptures':
       '1':
         'name': 'keyword.control.js'
-    'end': '(?=;|\\bfunction\\b|\\bclass\\b|\\blet\\b|\\bvar\\b|\\bconst\\b|$)'
+    'end': '(?=;|\\bfunc\\b|\\bclass\\b|\\blet\\b|\\bconst\\b|$)'
     'name': 'meta.export.js'
     'patterns': [
       {
@@ -303,7 +289,7 @@
   {
     # [async] function [name](params)
     # function* name(params) – generator function declaration
-    'begin': '(?=(\\basync\\b\\s*)?\\bfunction\\b(?!\\s*:))'
+    'begin': '(?=(\\basync\\b\\s*)?\\bfunc\\b(?!\\s*:))'
     'end': '(?<=})'
     'patterns': [
       {
@@ -326,7 +312,7 @@
   }
   {
     # [.]foo = function...
-    'begin': '(?=(\\.)?[a-zA-Z_$][\\w$]*\\s*=\\s*(\\basync\\b\\s*)?\\bfunction\\b)'
+    'begin': '(?=(\\.)?[a-zA-Z_$][\\w$]*\\s*=\\s*(\\basync\\b\\s*)?\\bfunc\\b)'
     'end': '(?<=})'
     'patterns': [
       {
@@ -359,7 +345,7 @@
   }
   {
     # foo: function...
-    'begin': '(?=\\b[a-zA-Z_$][\\w$]*\\s*:\\s*(\\basync\\b\\s*)?\\bfunction\\b)'
+    'begin': '(?=\\b[a-zA-Z_$][\\w$]*\\s*:\\s*(\\basync\\b\\s*)?\\bfunc\\b)'
     'end': '(?<=})'
     'patterns': [
       {
@@ -390,7 +376,7 @@
   }
   {
     # "foo": function...
-    'begin': '(?=((\'[^\']*?\')|("[^"]*?"))\\s*:\\s*(\\basync\\b\\s*)?\\bfunction\\b)'
+    'begin': '(?=((\'[^\']*?\')|("[^"]*?"))\\s*:\\s*(\\basync\\b\\s*)?\\bfunc\\b)'
     'end': '(?<=})'
     'patterns': [
       {
@@ -464,7 +450,7 @@
     'begin': '''(?x)
       (?=
         (?!
-          (break|case|catch|continue|do|else|finally|for|function|if|
+          (break|case|catch|continue|do|else|finally|for|func|if|
           package|return|switch|throw|try|while|with)
           [\\s\\(]
         )
@@ -866,7 +852,7 @@
     'include': '#comments'
   }
   {
-    'match': '(?<!\\.)\\b(class|enum|function|interface)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\b(class|enum|func|interface)(?!\\s*:)\\b'
     'name': 'storage.type.js'
   }
   {
@@ -874,7 +860,7 @@
     'name': 'storage.modifier.js'
   }
   {
-    'match': '(?<!\\.)\\b(let|var)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\blet(?!\\s*:)\\b'
     'name': 'storage.type.var.js'
   }
   {
@@ -1546,7 +1532,7 @@
   'function_innards':
     'patterns': [
       {
-        'match': '(?:\\b(async)\\b\\s*)?\\b(function)\\b(?:\\s*(\\*))?'
+        'match': '(?:\\b(async)\\b\\s*)?\\b(func)\\b(?:\\s*(\\*))?'
         'captures':
           '1':
             'name': 'storage.modifier.async.js'
@@ -1856,11 +1842,11 @@
           (abstract|access|alias|arg|argument|async|attribute|augments|author|beta|borrows|bubbes|callback|chainable|class
           |classdesc|code|config|const|constant|constructor|constructs|copyright|default|defaultvalue|define|deprecated|desc
           |description|dict|emits|enum|event|example|exports?|extends|extension|extension_for|extensionfor|external|file
-          |fileoverview|final|fires|for|function|global|host|ignore|implements|implicitCast|inherit[Dd]oc|inner|instance
+          |fileoverview|final|fires|for|func|global|host|ignore|implements|implicitCast|inherit[Dd]oc|inner|instance
           |interface|kind|lends|license|listens|main|member|memberof|method|mixex|mixins?|modifies|module|name|namespace
           |noalias|nocollapse|nocompile|nosideeffects|override|overview|package|param|preserve|private|prop|property
           |protected|public|read[Oo]nly|record|require[ds]|returns?|see|since|static|struct|submodule|summary|suppress
-          |template|this|throws|todo|type|typedef|unrestricted|uses|var|variation|version|virtual|writeOnce)\\b
+          |template|this|throws|todo|type|typedef|unrestricted|uses|variation|version|virtual|writeOnce)\\b
         '''
         'name': 'storage.type.class.jsdoc'
       }
@@ -1932,7 +1918,7 @@
 
               (?:
                 (?:
-                  function                              # {function(string, number)} function type
+                  func                                  # {function(string, number)} function type
                   \\s*
                   \\(
                   \\s*
@@ -2054,7 +2040,7 @@
 
               (?:
                 (?:
-                  function                              # {function(string, number)} function type
+                  func                                  # {function(string, number)} function type
                   \\s*
                   \\(
                   \\s*
