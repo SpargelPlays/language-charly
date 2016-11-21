@@ -1,4 +1,4 @@
-'.source.js':
+'.source.charly':
   'Object Method':
     'prefix': 'kf'
     'body': '${1:methodName}: func (${2:attribute}) {\n\t$3\n}${4:,}'
