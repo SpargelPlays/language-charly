@@ -6,19 +6,19 @@
 'firstLineMatch': '''(?x)
   # Hashbang
   ^\\#!.*(?:\\s|\\/|(?<=!)\\b)
-    (?:node|iojs|JavaScript)
+    (?:charly)
   (?:$|\\s)
   |
   # Modeline
   (?i:
     # Emacs
     -\\*-(?:\\s*(?=[^:;\\s]+\\s*-\\*-)|(?:.*?[;\\s]|(?<=-\\*-))mode\\s*:\\s*)
-      (?:js|javascript)
+      (?:charly)
     (?=[\\s;]|(?<![-*])-\\*-).*?-\\*-
     |
     # Vim
     (?:(?:\\s|^)vi(?:m[<=>]?\\d+|m)?|\\sex)(?=:(?=\\s*set?\\s[^\\n:]+:)|:(?!\\s*set?\\s))(?:(?:\\s|\\s*:\\s*)\\w*(?:\\s*=(?:[^\\n\\\\\\s]|\\\\.)*)?)*[\\s:](?:filetype|ft|syntax)\\s*=
-      javascript
+      charly
     (?=\\s|:|$)
   )
 '''
@@ -1157,8 +1157,8 @@
     'name': 'constant.other.js'
   }
   {
-    'match': '(?<!\\$)\\b[0-9]+[\\w$]*'
-    'name': 'invalid.illegal.identifier.js'
+    'match': '[0-9]+\\.[0-9]'
+    'name': 'constant.numeric.decimal.js'
   }
   {
     'match': '\\;'
@@ -1601,11 +1601,13 @@
     'patterns': [
       {
         # .methodCall(arg1, "arg2", [...])
-        'begin': '(\\.)\\s*([\\w$]+)\\s*(?=\\()'
+        'begin': '([0-9]*(\\.[0-9]*)?)?(\\.)\\s*([\\w$]+)\\s*(?=\\()'
         'beginCaptures':
           '1':
-            'name': 'meta.delimiter.method.period.js'
+            'name': 'constant.numeric.decimal.js'
           '2':
+            'name': 'meta.delimiter.method.period.js'
+          '3':
             'patterns': [
               {
                 'match': '''(?x)
@@ -1730,20 +1732,24 @@
       }
       {
         # PROP in obj.PROP, func().PROP
-        'match': '(\\.)\\s*([A-Z][A-Z0-9_$]*\\b\\$*)'
+        'match': '([0-9]*([0-9]*)?)?(\\.)\\s*([A-Z][A-Z0-9_$]*\\b\\$*)'
         'captures':
           '1':
-            'name': 'meta.delimiter.property.period.js'
+            'name': 'constant.numeric.decimal.js'
           '2':
+            'name': 'meta.delimiter.property.period.js'
+          '3':
             'name': 'constant.other.property.js'
       }
       {
         # prop in obj.prop, func().prop
-        'match': '(\\.)\\s*(\\$*[a-zA-Z_$][\\w$]*)'
+        'match': '([0-9]*([0-9]*)?)?(\\.)\\s*(\\$*[a-zA-Z_$][\\w$]*)'
         'captures':
           '1':
-            'name': 'meta.delimiter.property.period.js'
+            'name': 'constant.numeric.decimal.js'
           '2':
+            'name': 'meta.delimiter.property.period.js'
+          '3':
             'name': 'variable.other.property.js'
       }
       {
