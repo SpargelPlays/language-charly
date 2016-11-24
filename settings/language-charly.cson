@@ -1,6 +1,6 @@
 '.source.js':
   'editor':
-    'commentStart': '// '
+    'commentStart': '# '
     'foldEndPattern': '^\\s*\\}|^\\s*\\]|^\\s*\\)'
     'increaseIndentPattern': '(?x)
         \\{ [^}"\']* $

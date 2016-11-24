@@ -19,7 +19,7 @@
     'body': 'func($1) {\n\t$2\n}'
   'Lambda Function':
     'prefix': 'lf'
-    'body': '->($1) {\n\t$2\n}'
+    'body': '->($1) {$2}'
   'Immediately-Invoked Function Expression':
     'prefix': 'iife'
     'body': '(func() {\n\t${1:\'use strict\';\n}\t$2\n}());'
