@@ -586,11 +586,9 @@
     'match': '''(?x)
       \\b(class)
       (?:
-        (?:\\s+(extends)\\s+([a-zA-Z_$][\\w$]*))
-        |
         (?:
           (?:\\s+([a-zA-Z_$][\\w$]*))
-          (?:\\s+(extends)\\s+([a-zA-Z_$][\\w$]*))?
+          (?:\\s+(extends)\\s+([a-zA-Z_$][\\w$\\s(,)]*)+)?
         )
       )
     '''
@@ -598,14 +596,10 @@
       '1':
         'name': 'storage.type.class.js'
       '2':
-        'name': 'storage.modifier.js'
-      '3':
-        'name': 'entity.other.inherited-class.js'
-      '4':
         'name': 'entity.name.type.class.js'
-      '5':
+      '3':
         'name': 'storage.modifier.js'
-      '6':
+      '4':
         'name': 'entity.other.inherited-class.js'
     'name': 'meta.class.js'
   }
@@ -715,11 +709,11 @@
     'include': '#comments'
   }
   {
-    'match': '(?<!\\.)\\b(class|enum|func|interface)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\b(class|func)(?!\\s*:)\\b'
     'name': 'storage.type.js'
   }
   {
-    'match': '(?<!\\.)\\b(async|export|extends|implements|private|protected|public|static)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\b(export|extends|private|static)(?!\\s*:)\\b'
     'name': 'storage.modifier.js'
   }
   {
