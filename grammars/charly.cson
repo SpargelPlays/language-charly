@@ -709,7 +709,7 @@
     'include': '#comments'
   }
   {
-    'match': '(?<!\\.)\\b(class|func)(?!\\s*:)\\b'
+    'match': '(?<!\\.)\\b(primitive|class|func)(?!\\s*:)\\b'
     'name': 'storage.type.js'
   }
   {
