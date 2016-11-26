@@ -1,7 +1,7 @@
-'scopeName': 'source.charly'
+'scopeName': 'source.ch'
 'name': 'Charly'
 'fileTypes': [
-  'charly'
+  'ch'
 ]
 'firstLineMatch': '''(?x)
   # Hashbang

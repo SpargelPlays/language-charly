@@ -1,4 +1,4 @@
-'.source.js':
+'.source.ch':
   'editor':
     'commentStart': '# '
     'foldEndPattern': '^\\s*\\}|^\\s*\\]|^\\s*\\)'
